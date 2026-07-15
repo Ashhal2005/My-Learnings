@@ -1,0 +1,8 @@
+DELIMITER $$
+CREATE TRIGGER after_student_insert
+AFTER INSERT ON Students
+FOR EACH ROW
+BEGIN
+    INSERT INTO Students_Log VALUES (NEW.StudentID, 'Inserted');
+END$$
+DELIMITER ;
